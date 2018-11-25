@@ -1,7 +1,10 @@
 const bsearch = require('../../utils/binary-search')
+const { numberCompare } = require('../../utils/compare')
 
 function solveNaive(input = [], k = 0) {
     // O(n^2) time. O(1) space
+
+    validateInput(input)
 
     for(let i = 0; i < input.length; i++) {
         let num1 = input[i]
@@ -20,27 +23,22 @@ function solveNaive(input = [], k = 0) {
 
 function solveOptimized(input = [], k = 0) {
     // O(nlgn) time. O(1) space
+    
     validateInput(input)
-
+    
     input.sort(numberCompare)
-
+    
     const pair = value => k - value
-
-    return !!input.find((value, index) => bsearch(input, pair(value), index) != null)
+    
+    return !!input.find(
+        (value, index) => bsearch(input, pair(value), index) != null
+    )
 }
-
-function numberCompare(a, b) {
-    if (a < b) return -1
-    if (a > b) return 1
-    return 0
-}
-
-
-
-module.exports = solveOptimized;
 
 function validateInput(input) {
     if (input.length < 2) {
         throw new Error('Input size must be >= 2')
     }
 }
+
+module.exports = solveOptimized;
