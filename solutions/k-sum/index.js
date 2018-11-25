@@ -1,3 +1,5 @@
+const bsearch = require('../../utils/binary-search')
+
 function solveNaive(input = [], k = 0) {
     // O(n^2) time. O(1) space
 
@@ -16,15 +18,26 @@ function solveNaive(input = [], k = 0) {
     return false
 }
 
-function solveOptimal(input = [], k = 0) {
+function solveOptimized(input = [], k = 0) {
+    // O(nlgn) time. O(1) space
     validateInput(input)
 
-    throw new Error('not yet implemented')
+    input.sort(numberCompare)
+
+    const pair = value => k - value
+
+    return !!input.find((value, index) => bsearch(input, pair(value), index) != null)
+}
+
+function numberCompare(a, b) {
+    if (a < b) return -1
+    if (a > b) return 1
+    return 0
 }
 
 
 
-module.exports = solveNaive;
+module.exports = solveOptimized;
 
 function validateInput(input) {
     if (input.length < 2) {
