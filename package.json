@@ -1,0 +1,29 @@
+{
+  "name": "daily-coding-problem-solutions",
+  "version": "0.0.0",
+  "description": "Solutions to problems from dailycodingproblem.com",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "private": true,
+  "scripts": {
+    "test": "mocha ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henryjw/daily-coding-problem-solutions.git"
+  },
+  "keywords": [],
+  "author": "Henry Williams",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/henryjw/daily-coding-problem-solutions/issues"
+  },
+  "homepage": "https://github.com/henryjw/daily-coding-problem-solutions#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.9.0",
+    "mocha": "^5.2.0"
+  }
+}
